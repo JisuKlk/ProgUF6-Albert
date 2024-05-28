@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
     public static Connection getConnection() {
-        String url = "jdbc:mysql://localhost:3306/school";
+        String url = "jdbc:postgresql://localhost:5432/school";
         String user = "root";
         String password = "password";
         

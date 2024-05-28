@@ -7,7 +7,6 @@ public class Main {
         DatabaseManager dbManager = new DatabaseManager();
         dbManager.connect();
 
-
         // Crear un nou estudiant
         Student student = new Student(1, "Joan", "Garcia");
         dbManager.addStudent(student);

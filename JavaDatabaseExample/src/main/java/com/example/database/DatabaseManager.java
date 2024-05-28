@@ -13,6 +13,9 @@ public class DatabaseManager {
     // We get the conn
     public void connect() {
         connection = DatabaseConnection.getConnection();
+        if (connection == null) {
+            System.err.println("No se puede establecer una conexión con la base de datos");
+        }
     }
 
     // In case we need to disconnect

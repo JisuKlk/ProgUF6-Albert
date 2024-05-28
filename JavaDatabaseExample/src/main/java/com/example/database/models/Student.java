@@ -5,14 +5,11 @@ public class Student {
     private String name;
     private String lastName;
 
-    // Constructor
     public Student(int id, String name, String lastName) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
     }
-
-    // Métodos getters y setters para acceder y modificar los atributos de la clase
 
     public int getId() {
         return id;
