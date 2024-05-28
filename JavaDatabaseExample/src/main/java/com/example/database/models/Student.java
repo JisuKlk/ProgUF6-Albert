@@ -1,9 +1,40 @@
 package main.java.com.example.database.models;
 
 public class Student {
+    private int id;
+    private String name;
+    private String lastName;
 
-    public Student(int i, String string, String string2) {
-        //TODO Auto-generated constructor stub
+    // Constructor
+    public Student(int id, String name, String lastName) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
     }
-    
+
+    // Métodos getters y setters para acceder y modificar los atributos de la clase
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }
