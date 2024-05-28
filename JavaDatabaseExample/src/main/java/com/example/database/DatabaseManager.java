@@ -100,4 +100,25 @@ public class DatabaseManager {
         }
     }
 
+    // Last one, D stands for Delete
+    public void deleteStudent(int id) {
+
+        // Query string
+        String query = "DELETE FROM students WHERE id = ?";
+
+        // Pim, pam, Try-Catch
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            
+            // Bind params
+            stmt.setInt(1, id);
+
+            // Execute the query
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+
+            // Catch if needed again...
+            e.printStackTrace();
+        }
+    }
+
 }
