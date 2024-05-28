@@ -77,4 +77,27 @@ public class DatabaseManager {
         return null;
     }
 
+    // U Stand for Update so, here's it
+    public void updateStudent(Student student) {
+
+        // Query
+        String query = "UPDATE students SET name = ?, lastName = ? WHERE id = ?";
+
+        // Try-Catch ofc
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+
+            // Bind params
+            stmt.setString(1, student.getName());
+            stmt.setString(2, student.getLastName());
+            stmt.setInt(3, student.getId());
+
+            // Execute the query rq
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+
+            // Catch if needed
+            e.printStackTrace();
+        }
+    }
+
 }
