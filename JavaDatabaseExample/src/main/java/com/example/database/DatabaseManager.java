@@ -10,24 +10,22 @@ import java.sql.SQLException;
 public class DatabaseManager {
     private Connection connection;
 
-    public class DatabaseConnection {
-        public static Connection getConnection() {
-            String url = "jdbc:postgresql://localhost:5432/school";
-            String user = "root";
-            String password = "password";
+    public static Connection getConnection() {
+        String url = "jdbc:postgresql://localhost:5432/school";
+        String user = "root";
+        String password = "password";
 
-            try {
-                return DriverManager.getConnection(url, user, password);
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return null;
-            }
+        try {
+            return DriverManager.getConnection(url, user, password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
     // We get the conn
     public void connect() {
-        connection = DatabaseConnection.getConnection();
+        connection = getConnection();
         if (connection == null) {
             System.err.println("No se puede establecer una conexión con la base de datos");
         }
@@ -138,5 +136,4 @@ public class DatabaseManager {
             e.printStackTrace();
         }
     }
-
 }
