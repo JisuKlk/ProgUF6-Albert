@@ -11,19 +11,19 @@ public class DatabaseManager {
     private Connection connection;
 
     public class DatabaseConnection {
-    public static Connection getConnection() {
-        String url = "jdbc:postgresql://localhost:5432/school";
-        String user = "root";
-        String password = "password";
-        
-        try {
-            return DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
+        public static Connection getConnection() {
+            String url = "jdbc:postgresql://localhost:5432/school";
+            String user = "root";
+            String password = "password";
+
+            try {
+                return DriverManager.getConnection(url, user, password);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
     }
-}
 
     // We get the conn
     public void connect() {
@@ -126,7 +126,7 @@ public class DatabaseManager {
 
         // Pim, pam, Try-Catch
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            
+
             // Bind params
             stmt.setInt(1, id);
 
