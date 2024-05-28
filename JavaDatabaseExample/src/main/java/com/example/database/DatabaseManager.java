@@ -3,6 +3,7 @@ package main.java.com.example.database;
 import main.java.com.example.database.models.Student;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import main.lib.DatabaseConnection;
 
@@ -46,6 +47,34 @@ public class DatabaseManager {
             // Catch the excepcion if needed
             e.printStackTrace();
         }
+    }
+
+    // Then we do the R, R stands for Read
+    public Student getStudent(int id) {
+
+        // Same as before we create the query
+        String query = "SELECT * FROM students WHERE id = ?";
+
+        // Try-Catch as always
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+
+            // Bind params
+            stmt.setInt(1, id);
+
+            // Execute the query and store the result on a var
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                // Return the query result
+                return new Student(rs.getInt("id"), rs.getString("name"), rs.getString("lastName"));
+            }
+        } catch (SQLException e) {
+
+            // Catch if needed
+            e.printStackTrace();
+        }
+
+        // Return null if somethings wrong
+        return null;
     }
 
 }
